@@ -41,5 +41,7 @@ This repository is used for the web service development. Currently, we are imple
 
 Our main photo idenfication algorithm implemented in Matlab is stored in [this repository](https://github.com/eovchinn/WhalePhotoID_MATLAB).
 
-This algorithm currently works with pictures of [blue whales](https://en.wikipedia.org/wiki/Blue_whale‎), largest animals that have ever lived on Earth, are on this list. We plan to extend it for other whale species, if the project is succesful. 
+This algorithm currently works with pictures of [blue whales](https://en.wikipedia.org/wiki/Blue_whale‎), 
+largest animals that have ever lived on Earth. We plan to extend it for other whale species, 
+if the project is succesful. 
 
