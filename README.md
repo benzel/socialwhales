@@ -5,7 +5,7 @@ Social Whales
 
 Several whale species are currently endangered. Biologists struggle to help them survive, but collecting information about whale migration paths and distribution of their population is not easy. Whales live under water, they travel huge distances, and it's hard to spot and identify them. 
 
-One of the principle methods for whale tracking is based on photo identification.
+One of the principle methods of whale tracking is based on photo identification.
 Biologists go on expeditions, take a lot of pictures of whatever whales they see, come back home and manually compare these pictures with the pictures they have already collected in a catalog. Whales usually have some characteristic patterns on their backs or fins that uniquely identify them like fingerprints do for humans. Biologists use these patterns in order to match new pictures with pictures of known whales. Each new match adds information about a particular whale. 
 
 As you can imagine, this way of collecting information is pretty slow and resource-consuming.
