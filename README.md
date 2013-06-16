@@ -8,20 +8,25 @@ Several whale species are currently endangered. Biologists struggle to help them
 One of the principle methods for whale tracking is based on photo identification.
 Biologists go on expeditions, take a lot of pictures of whatever whales they see, come back home and manually compare these pictures with the pictures they have already collected in a catalog. Whales usually have some characteristic patterns on their backs or fins that uniquely identify them like fingerprints do for humans. Biologists use these patterns in order to match new pictures with pictures of known whales. Each new match adds information about a particular whale. 
 
-As you can imagine, this way of collecting information is pretty slow and resource-consuming!
+As you can imagine, this way of collecting information is pretty slow and resource-consuming.
 
-At the same time, there is a wide range of companies organizing whale watching trips and thousands of engaged whale watches going on boats to see whales and take thousands of pictures. Can't those pictures be used to help the biologists to collect information?
+At the same time, there is a wide range of companies organizing whale watching trips and thousands of 
+whale watchers going on boats to see whales and take thousands of pictures. Can't those pictures be 
+used to help the biologists to collect information?
 
 ---
 
 **PROJECT IDEA**
 
-The Social Whales project is about building a web service for:
+The _Social Whales_ project is about building a web service for:
 
 - uploading and annotating photographs of whales
 - browsing the accumulated whale catalog
-- aquiring statistics about whale migration paths and distribution
+- aquiring statistics about whale migration paths and population distributions
 
+
+Basically, we intend to build a social network for whales, where each whale has a profile with associated pictures, 
+it's migration paths shown on Google maps and lot of other useful statistics.
 The project idea and related literature is described in [this presentation]().
 
 ---
