@@ -25,15 +25,13 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="css/main.css">
-        
-        <!--  -->
+
+
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>        
-        
-        <!-- Angular -->
-        <script src="js/angular/angular-1.0.7.min.js"></script>
-        <script src="js/angular/WhalesApp.js"></script>
-        
-        
+        <script src="js/vendor/angular-1.0.7.min.js"></script>
+        <script src="js/vendor/angular-cookies-1.0.7.min.js"></script>
+
+
     </head>
     <body>
 
@@ -47,6 +45,14 @@
                     </a>
                     <a class="brand" href="/#/">SocialWhales</a>
                     <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li>
+                                <a>Explore</a>
+                            </li>
+                            <li>
+                                <a>Upload Photos</a>
+                            </li>
+                        </ul>
                         <!-- <ul class="nav">
                             <li class="active"><a href="/#/home">Home</a></li>
                             <li><a href="#about">About</a></li>
@@ -91,12 +97,22 @@
 
         </div> <!-- /container -->
 
-        <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-        <!-- // <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script> -->
-
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/vendor/bootstrap.min.js"></script>
 
-        <script src="js/main.js"></script>
+        <script src="js/angular/roles.js"></script>
+        <script src="js/angular/app.js"></script>
+        <script src="js/angular/common/directives.js"></script>
+        <script src="js/angular/common/filters.js"></script>
+        <!-- home -->
+        <script src="js/angular/home/HomeController.js"></script>
+        <!-- user -->
+        <script src="js/angular/user/UserLoginController.js"></script>
+        <script src="js/angular/user/UserSignupController.js"></script>
+        <script src="js/angular/user/UserModel.js"></script>
+        <script src="js/angular/user/UserService.js"></script>
+
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
