@@ -9,6 +9,7 @@ import (
 
 type User struct {
     UserId         int
+    UserEmail      string
     Role           int
     FirstName      string
     Surname        string
