@@ -1,0 +1,10 @@
+{
+	"storage": {
+		"api": "postgres",
+		"name": "whale",
+		"username": "whale",
+		"password": "whalesmustbesocial",
+		"host": "localhost",
+		"port": 5432
+	}
+}

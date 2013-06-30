@@ -10,12 +10,12 @@ GET     /                                       App.Index
 GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/{<.+>filepath}                  Static.Serve("public")
+GET    /public/*filepath     Static.Serve("public")
 
 # Auth
-POST    /auth/signup                            Auth.Signup
-POST    /auth/login                             Auth.Login
-GET     /auth/logout                            Auth.Logout
+POST    /auth/signup         Auth.Signup
+POST    /auth/login          Auth.Login
+GET     /auth/logout         Auth.Logout
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+*      /:controller/:action  :controller.:action
