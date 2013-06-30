@@ -16,7 +16,7 @@ type AccountAPI struct {
 
 
 func NewAccountAPI(db *driver.Conn) *AccountAPI{
-	conn, err := pq.Open("user=zvm password=39572685 host=localhost port=5432 dbname=whale sslmode=disable")
+	conn, err := pq.Open("user=whale password=password host=localhost port=5432 dbname=whale sslmode=disable")
 	if err != nil {
 		revel.ERROR.Print("Cannot create connection to PostgreSQL")
 	}
@@ -48,7 +48,6 @@ func (a AccountAPI) UpdatePassword(Credentials* models.AccountCredentials, NewPa
 func (a AccountAPI) Delete(Credentials* models.AccountCredentials) (error, int64) {
 	return nil, -1
 }
-
 
 
 type PqStorage struct {
