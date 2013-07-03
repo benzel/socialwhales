@@ -4,18 +4,18 @@ import (
 	"io/ioutil"
 	"encoding/json"
 	"github.com/robfig/revel"
-	"socialwhales/app/models"
-	"socialwhales/app/storage"
+	"github.com/benzel/socialwhales/app/models"
+	"github.com/benzel/socialwhales/app/services/storage"
 )
 
 type Auth struct {
 	*revel.Controller
 }
 
-var Storage = new(storage.PqStorage)
+var users storage.Users = storage.GetStorage("memory").GetUsers()
 
 func (c Auth) Signup() revel.Result {
-	credentials := models.AccountCredentials{}
+	var credentials models.Credentials
 	json_data, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {
 		return c.RenderJson(map[string]string{

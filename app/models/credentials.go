@@ -4,12 +4,12 @@ import (
 	"github.com/robfig/revel"
 )
 
-type AccountCredentials struct {
+type Credentials struct {
 	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
-func (c *AccountCredentials) Validate(v *revel.Validation) {
+func (c *Credentials) Validate(v *revel.Validation) {
 	v.Check(c.Email,
 		revel.Required{},
 		revel.MaxSize{32},
