@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"io/ioutil"
 	"encoding/json"
-	"github.com/robfig/revel"
 	"github.com/benzel/socialwhales/app/models"
 	"github.com/benzel/socialwhales/app/services/storage"
+	"github.com/robfig/revel"
+	"io/ioutil"
 )
 
 type Auth struct {
@@ -22,13 +22,13 @@ func (c Auth) Signup() revel.Result {
 			"message": "error",
 		})
 	}
-	
+
 	if err := json.Unmarshal([]byte(json_data), &credentials); err != nil {
 		return c.RenderJson(map[string]string{
 			"message": "error",
 		})
 	}
-	
+
 	// user := models.User{}
 	// user.Get("test", "test")
 	//
