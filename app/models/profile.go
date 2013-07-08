@@ -1,14 +1,9 @@
 package models
 
-type User struct {
-	Login string
-	Name  string
-	Email string
+type Profile struct {
+	AccountId  int64  `json:"account_id"`
+	ScreenName string `json:"screen_name,omitempty"`
+	FirstName  string `json:"first_name,omitempty"`
+	Surname    string `json:"surname,omitempty"`
+	Email      string `json:"email,omitempty"`
 }
-
-
-// type Account struct {
-// 	Email
-// 	Password
-	
-// }

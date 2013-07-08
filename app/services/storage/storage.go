@@ -5,34 +5,43 @@ package storage
 
 import "github.com/benzel/socialwhales/app/models"
 
-type Storage interface {
-	GetUsers() Users
+type StorageService interface {
+	GetProfiles() ProfilesAPI
+	GetAccounts() AccountsAPI
 }
 
-type Users interface {
+type AccountsAPI interface {
+	Create(Credentials models.Credentials) (int64, error)
+	Check(Credentials models.Credentials) (int64, error)
+	UpdateEmail(Credentials models.Credentials, newEmail string) (int64, error)
+	UpdatePassword(Credentials models.Credentials, newPassword string) (int64, error)
+	Delete(Credentials models.Credentials) (int64, error)
+}
+
+type ProfilesAPI interface {
 	// TODO(Dyatlov): return more specific errors, e.g. like here
 	// http://golang.org/src/pkg/database/sql/driver/driver.go
-	Create(user models.User) error
-	Read(login string) (models.User, error)
-	Update(user models.User) error
-	Delete(login string) error
+	Create(profile models.Profile) error
+	Read(id int64) (models.Profile, error)
+	Update(profile models.Profile) error
+	Delete(id int64) error
 }
 
-var storages = make(map[string]Storage)
+var storages = make(map[string]StorageService)
 
-func Register(name string, storage Storage) {
+func Register(alias string, storage StorageService) {
 	if storage == nil {
 		panic("storage: Register storage is nil")
 	}
-	if _, ok := storages[name]; ok {
-		panic("storage: Register called twice for storage implementation " + name)
+	if _, ok := storages[alias]; ok {
+		panic("storage: Register called twice for storage implementation " + alias)
 	}
-	storages[name] = storage
+	storages[alias] = storage
 }
 
-func GetStorage(name string) Storage {
-	if _, ok := storages[name]; !ok {
+func GetStorage(alias string) StorageService {
+	if _, ok := storages[alias]; !ok {
 		panic("storage: No Storage implementation registered")
 	}
-	return storages[name]
+	return storages[alias]
 }
