@@ -5,8 +5,6 @@ package storagepq
 // import "github.com/benzel/socialwhales/app/services/storage"
 // import "github.com/benzel/socialwhales/app/models"
 
-// var ALIAS = "PQ"
-
 // func init() {
 // 	var s storagePq
 // 	s.Profiles = make(profilesPq)
