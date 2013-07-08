@@ -21,14 +21,14 @@ func (c Auth) Signup() revel.Result {
 	if err != nil {
 		return c.RenderJson(map[string]string{
 			"error":         "1",
-			// "error_message": err.String(),
+			"error_message": err.Error(),
 			"error_details": "error while reading request body",
 		})
 	}
 	if err := json.Unmarshal([]byte(json_data), &credentials); err != nil {
 		return c.RenderJson(map[string]string{
 			"error":         "1",
-			// "error_message": err.String(),
+			"error_message": err.Error(),
 			"error_details": "invalid json format in the request body",
 		})
 	}
@@ -38,7 +38,7 @@ func (c Auth) Signup() revel.Result {
 	if c.Validation.HasErrors() {
 		return c.RenderJson(map[string]string{
 			"error":         "1",
-			// "error_message": "",
+			"error_message": "",
 			"error_details": "invalid user credentials",
 		})
 	}
@@ -47,14 +47,13 @@ func (c Auth) Signup() revel.Result {
 
 	if err != nil {
 		return c.RenderJson(map[string]string{
-			"error":           "1",
-			// "error_message": err.String(),
+			"error":         "1",
+			"error_message": err.Error(),
 			"error_details": "API error while creating new account",
 		})
 	}
 	return c.RenderJson(map[string]string{
 		"error":           "0",
-		"account_id":      string(accountId),
 		"success_message": "successfully performed account user signup",
 	})
 }
