@@ -57,7 +57,7 @@ func (c Auth) Signup() revel.Result {
 		})
 	}
 
-	accountId, err = Accounts.Create(credentials)
+	accountId, err := Accounts.Create(credentials)
 
 	if err != nil {
 		return c.RenderJson(AuthErrorResponse{
