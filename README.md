@@ -26,7 +26,10 @@ The _Social Whales_ project is about building a web service for:
 
 
 Basically, we intend to build a social network for whales, where each whale has a profile with associated pictures, 
-it's migration paths shown on Google maps and lots of other useful statistics.
+it's migration paths shown on Google maps and lots of other useful statistics. Whenever a new picture is uploaded, 
+the web service will try identify to whale, i.e. suggest potential matches of this picture with the pictures stored 
+in the whale catalog.
+
 The project idea and related literature is described in [this presentation](https://raw.github.com/benzel/socialwhales/master/docs/Social Whales--slides.pdf).
 
 ---
