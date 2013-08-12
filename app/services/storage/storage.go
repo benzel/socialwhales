@@ -3,27 +3,31 @@
 
 package storage
 
+import "github.com/robfig/revel"
 import "github.com/benzel/socialwhales/app/models"
 
+var Storage StorageService
+
 type StorageService interface {
+	InitService() error
 	GetProfiles() ProfilesAPI
 	GetAccounts() AccountsAPI
 }
 
 type AccountsAPI interface {
-	Create(Credentials models.Credentials) (int64, error)
-	Check(Credentials models.Credentials) (int64, error)
-	UpdateEmail(Credentials models.Credentials, newEmail string) (int64, error)
-	UpdatePassword(Credentials models.Credentials, newPassword string) (int64, error)
-	Delete(Credentials models.Credentials) (int64, error)
+	Create(credentials *models.Credentials) (*models.Account, error)
+	Read(Credentials *models.Credentials) (*models.Account, error)
+	UpdateEmail(Credentials *models.Credentials, newEmail string) error
+	UpdatePassword(Credentials *models.Credentials, newPassword string) error
+	Delete(Credentials *models.Credentials) error
 }
 
 type ProfilesAPI interface {
 	// TODO(Dyatlov): return more specific errors, e.g. like here
 	// http://golang.org/src/pkg/database/sql/driver/driver.go
-	Create(profile models.Profile) error
-	Read(id int64) (models.Profile, error)
-	Update(profile models.Profile) error
+	Create(profile *models.Profile) error
+	Read(id int64, profile *models.Profile) error
+	Update(profile *models.Profile) error
 	Delete(id int64) error
 }
 
@@ -40,8 +44,18 @@ func Register(alias string, storage StorageService) {
 }
 
 func GetStorage(alias string) StorageService {
+	revel.INFO.Println(storages)
 	if _, ok := storages[alias]; !ok {
-		panic("storage: No Storage implementation registered")
+		revel.ERROR.Fatal("storage: No Storage implementation registered")
 	}
 	return storages[alias]
+}
+
+func InitServices() {
+	for serviceAlias, service := range storages {
+		revel.INFO.Println("Init service: " + serviceAlias)
+		service.InitService()
+		revel.INFO.Println("Should be inited")
+		revel.INFO.Println(service)
+	}
 }

@@ -1,4 +1,4 @@
-"use strict";
+ "use strict";
 
 var app = angular.module("Whale", ["ngCookies"]).config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
         $routeProvider.when("/home", {
@@ -15,3 +15,14 @@ var app = angular.module("Whale", ["ngCookies"]).config(["$routeProvider", "$loc
         });
         $routeProvider.otherwise({redirectTo: "/home"});
 }]);
+
+app.run(function($rootScope, $location, UserService) {
+    var routesThatRequireAuth = [
+        // "/home",
+    ];
+    $rootScope.$on("$routeChangeStart", function(event, next, ccurrent) {
+        if(_(routesThatRequireAuth).contains($location.path()) && !UserService.isLogedIn()) {
+            $location.path("/login")
+        }
+    })
+});

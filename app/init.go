@@ -1,6 +1,8 @@
 package app
 
 import "github.com/robfig/revel"
+import "github.com/benzel/socialwhales/app/controllers"
+import "github.com/benzel/socialwhales/app/services/storage"
 
 func init() {
 	// Filters is the default set of global filters.
@@ -16,4 +18,8 @@ func init() {
 		revel.InterceptorFilter,       // Run interceptors around the action.
 		revel.ActionInvoker,           // Invoke the action.
 	}
+	revel.OnAppStart(storage.InitServices)
+	revel.OnAppStart(controllers.InitAuth)
+	revel.OnAppStart(controllers.CacheIndex)
+
 }
