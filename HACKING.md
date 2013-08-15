@@ -1,4 +1,4 @@
-# Simple guide on hacking conventions
+# Simple guide on how to hack socialwhales.
 
 ### 0. How to run
 
