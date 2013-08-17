@@ -8,7 +8,7 @@ $ revel run github.com/benzel/socialwhales
 
 ### 1. Code
 
-* To format Go code changes, we use shell-script `scripts/format_code.sh.`.
+* To format Go code, we use shell-script `scripts/format_code.sh.`.
 * We use this [manual](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) for JavaScript.
 * This [article](https://gocardless.com/blog/building-a-large-angular-application/) shows good examples of how to organize Angular.js application.
 * Socialwhales should be placed in `$GOCODE/src/github.com/socialwhales`.
