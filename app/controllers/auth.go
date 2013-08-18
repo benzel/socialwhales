@@ -92,7 +92,7 @@ func (c Auth) Signup() revel.Result {
 		c.Response.Status = http.StatusUnauthorized
 		return c.RenderJson(AuthError{
 			Error:        1,
-			Flash:        "API error while creating new account.",
+			Flash:        "API error while creating new account. " + err.Error(),
 			ErrorDetails: err.Error(),
 		})
 	}

@@ -3,10 +3,8 @@ package storagepq
 import "fmt"
 import "database/sql"
 import "code.google.com/p/go.crypto/bcrypt"
-import uuid "github.com/nu7hatch/gouuid"
 import "github.com/coopernurse/gorp"
 import "github.com/robfig/revel"
-import "github.com/benzel/socialwhales/app/utils"
 import "github.com/benzel/socialwhales/app/models"
 import "github.com/benzel/socialwhales/app/services/storage"
 
@@ -116,18 +114,9 @@ func (profiles *profilesPq) Delete(id int64) error {
 /////////////////////////////////////////////////////////////////////
 
 func (accounts *accountsPq) Create(credentials *models.Credentials) (*models.Account, error) {
-	hPassword, err := utils.HashPassword(credentials.Password)
+	account, err := credentials.Account()
 	if err != nil {
 		return nil, err
-	}
-	tokenObj, err := uuid.NewV4()
-	if err != nil {
-		return nil, err
-	}
-	account := &models.Account{
-		Email:     credentials.Email,
-		HPassword: hPassword,
-		Token:     tokenObj.String(),
 	}
 	if err = accounts.Storage.DbMap.Insert(account); err != nil {
 		return nil, err
