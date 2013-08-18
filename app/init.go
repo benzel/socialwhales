@@ -20,6 +20,5 @@ func init() {
 	}
 	revel.OnAppStart(storage.InitServices)
 	revel.OnAppStart(controllers.InitAuth)
-	revel.OnAppStart(controllers.CacheIndex)
 
 }
