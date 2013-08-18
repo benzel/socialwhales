@@ -77,6 +77,15 @@
             </div>
         </div>
 
+        <h2 ng-show="UserService.isLoggedIn()">
+            If you see this, then you are logged in.
+        </h2>
+
+
+        <h2 ng-show="!UserService.isLoggedIn()">
+            If you see this, then you are NOT logged in.
+        </h2>
+
         <div class="container">
             
             <div id="view" ng-view></div>
