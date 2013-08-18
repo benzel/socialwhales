@@ -18,10 +18,10 @@ CREATE TABLE "t_accounts" (
     "role"              int2 NOT NULL DEFAULT 0,
     "status"            int2 NOT NULL DEFAULT 0, -- 0 = not activated
     "email"             varchar(32) NOT NULL UNIQUE,
-    "signed_up"         timestamp with time zone NOT NULL DEFAULT NOW(),
-    "updated_at"        timestamp with time zone NOT NULL DEFAULT NOW(),
-    "hpassword"   		bytea NOT NULL,
-    "token"				varchar(36) NOT NULL
+    "hpassword"         bytea NOT NULL,
+    "token"             varchar(36) NOT NULL,
+    "signedup_at"       timestamp with time zone NOT NULL DEFAULT NOW(),
+    "updated_at"        timestamp with time zone NOT NULL DEFAULT NOW()
 );
 CREATE TABLE "t_profiles" (
     "account_id"        int8 NOT NULL PRIMARY KEY REFERENCES t_accounts(id),
