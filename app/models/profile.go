@@ -7,3 +7,14 @@ type Profile struct {
 	Surname    string `json:"surname,omitempty",db:"surname"`
 	Email      string `json:"email,omitempty",db:"email"`
 }
+
+// Constructs profile for provided account data, can be used when registering a new user.
+func InitialProfile(account *Account) *Profile {
+	return &Profile{
+		AccountId:  account.Id,
+		ScreenName: "",
+		FirstName:  "",
+		Surname:    "",
+		Email:      "",
+	}
+}
