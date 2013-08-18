@@ -17,3 +17,42 @@ $ revel run github.com/benzel/socialwhales
 ### 2. Data definition
 
 * There is no ORM in social whales, so we rely on schema.sql, its comments and HACKING.md. Nuff said.
+
+
+### 3. Backend application structure
+
+* Directory structure:
+
+```
+├── app                       # Root of Go backend application.
+│   ├── controllers           # REST API implementations.
+│   ├── init.go               # This module contains entry point and other modules initializers.
+│   ├── models                # Application-level data definitions.
+│   ├── routes                # This folder contains generated code which is responsible for url routing.
+│   ├── services              # Difiirent implementations of database services.
+│   │   ├── storage           # Definition of abstract database service.
+│   │   ├── mem               # Simple service base on go maps.
+│   │   └── pq                # Service based on gorp and pq libaries.
+│   ├── tmp                   # 
+│   ├── utils                 #
+│   └── views                 #
+│       └── App               #
+│           └── Index.html    #
+├── conf                      #
+├── docs                      #
+├── goPackages.txt            #
+├── messages                  # We dont use this folder.
+├── public                    #
+│   ├── app                   #
+│   ├── css                   #
+│   ├── errors                #
+│   ├── img                   #
+│   └── js                    #
+├── schema.sql                #
+├── scripts                   #
+└── tests                     #
+```
+
+
+### 4. Frontend application structure
+
