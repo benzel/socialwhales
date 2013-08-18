@@ -1,0 +1,7 @@
+/**
+  *
+  *
+  */
+app.controller("WhaleController", [function() {
+    
+}]);

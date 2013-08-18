@@ -7,7 +7,7 @@ app.factory("SessionService", function() {
 			return sessionStorage.setItem(key, value);
 		},
 		unset: function(key) {
-			return sessionStorage.removeItem();
+			return sessionStorage.removeItem(key);
 		}
 	};
 });
